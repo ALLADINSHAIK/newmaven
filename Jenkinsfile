@@ -23,7 +23,7 @@ pipeline {
             steps {
                   withSonarQubeEnv(credentialsId: 'sonarcloud'){
            sh "mvn sonar:sonar \
-                              -Dsonar.projectKey=newmaven"
+                              -Dsonar.projectKey=karthik0741_newmaven"
                 }
            timeout(time: 2, unit: 'MINUTES') {
                       script {
