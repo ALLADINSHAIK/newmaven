@@ -35,7 +35,8 @@ pipeline {
                 -Dsonar.host.url=https://sonarcloud.io" 
                           }     
                 }
-           timeout(time: 2, unit: 'MINUTES') {
+              sleep(60)
+              timeout(time: 2, unit: 'MINUTES') {
                       script {
                         waitForQualityGate abortPipeline: true
                     }
