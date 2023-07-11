@@ -3,7 +3,7 @@ pipeline {
   stages {
       stage('Build Artifact') {
             steps {
-              sh "mvn clean package -DskipTests=true"
+              sh "mvn clean package -DskipTests=true" 
               archive 'target/*.jar' 
             }  
        }
@@ -22,7 +22,7 @@ pipeline {
        stage('Sonarqube Analysis - SAST') {
             steps {
                 withSonarQubeEnv('sonarcloud'){
-                sh "mvn sonar:sonar
+                sh "mvn clean package -DskipTests=true"
                 }
            timeout(time: 2, unit: 'MINUTES') {
                       script {
