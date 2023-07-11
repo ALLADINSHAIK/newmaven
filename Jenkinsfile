@@ -31,7 +31,7 @@ pipeline {
               sh "mvn sonar:sonar \
                               -Dsonar.projectKey=karthik0741_newmaven \
                         -Dsonar.host.url=https://sonarcloud.io" 
-                          
+                          }     
                 }
            timeout(time: 2, unit: 'MINUTES') {
                       script {
