@@ -12,9 +12,9 @@ pipeline {
        }
       stage('Test Maven - JUnit') {
             steps {
-             
+              withMaven(maven: 'maven') {
               sh "mvn test"
-              
+              }
             }
             post{
               always{
@@ -26,7 +26,7 @@ pipeline {
 
        stage('Sonarqube Analysis - SAST') {
             steps {
-             
+              withMaven(maven: 'maven') {
               withSonarQubeEnv('sonarcloud'){
               sh "mvn sonar:sonar \
                               -Dsonar.projectKey=karthik0741_newmaven \
