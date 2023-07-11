@@ -27,10 +27,10 @@ pipeline {
        stage('Sonarqube Analysis - SAST') {
             steps {
               withMaven(maven: 'maven') {
-              withSonarQubeEnv('sonarcloud'){
+              withCredentials([string(credentialsId: 'SONAR_TOKEN', variable: 'mysonarcloud')]) {
               sh "mvn sonar:sonar \
-                              -Dsonar.projectKey=karthik0741_newmaven \
-                        -Dsonar.host.url=https://sonarcloud.io" 
+                -Dsonar.projectKey=karthik0741_newmaven \
+                -Dsonar.host.url=https://sonarcloud.io" 
                           }     
                 }
            timeout(time: 2, unit: 'MINUTES') {
