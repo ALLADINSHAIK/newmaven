@@ -21,9 +21,8 @@ pipeline {
 
        stage('Sonarqube Analysis - SAST') {
             steps {
-                  withSonarQubeEnv(credentialsId: 'sonarcloud'){
-           sh "mvn sonar:sonar \
-                              -Dsonar.projectKey=karthik0741_newmaven"
+                withSonarQubeEnv('sonarcloud'){
+                sh "mvn sonar:sonar
                 }
            timeout(time: 2, unit: 'MINUTES') {
                       script {
