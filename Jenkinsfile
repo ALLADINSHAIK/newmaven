@@ -29,7 +29,7 @@ pipeline {
               withMaven(maven: 'maven') {
               withCredentials([string(credentialsId: 'SONAR_TOKEN', variable: 'mysonarcloud')]) {
               sh "mvn clean verify sonar:sonar \
-                -Dsonar.token=d9f2df603842a18921cac69fa3705a3cbc257126
+                -Dsonar.token=d9f2df603842a18921cac69fa3705a3cbc257126 \
                 -Dsonar.projectKey=karthik0741_newmaven \
                 -Dsonar.organization=karthik0741 \
                 -Dsonar.host.url=https://sonarcloud.io" 
