@@ -22,7 +22,9 @@ pipeline {
        stage('Sonarqube Analysis - SAST') {
             steps {
                 withSonarQubeEnv('sonarcloud'){
-                sh "mvn clean package -DskipTests=true"
+                sh "mvn sonar:sonar \
+                              -Dsonar.projectKey=karthik0741_newmaven \
+                        -Dsonar.host.url=https://sonarcloud.io" 
                 }
            timeout(time: 2, unit: 'MINUTES') {
                       script {
